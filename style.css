@@ -1,0 +1,166 @@
+:root { 
+    --color-principal: #f6b734;
+    --color-secundario: #70bce0;
+    --color-destacado: #024c89;
+    --color-texto: #333;
+    --submenu-bg: #fff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+body { background-color: #f9f9f9; color: var(--color-texto); }
+
+/* NAVBAR */
+header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: var(--color-principal); color: #fff;
+    display: flex; align-items: center; justify-content: center; /* centramos el título */
+    padding: 15px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    gap: 15px;
+}
+header h1 { font-size: 1.8rem; font-weight: bold; color: var(--color-destacado); }
+
+/* Banner en el header */
+header .banner {
+    position: absolute;
+    left: 30px; /* mantiene el banner siempre a la izquierda */
+}
+header .banner img {
+    height: 50px; /* ajusta según tu imagen */
+}
+
+nav ul { list-style: none; display: flex; gap: 25px; }
+nav ul li { position: relative; }
+nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 12px; transition: all 0.3s; }
+nav a:hover, nav a.active { color: var(--color-destacado); background: var(--color-secundario); border-radius: 5px; }
+
+/* SUBMENÚ */
+.submenu { position: absolute; top: 100%; left: 0; background: var(--submenu-bg); min-width: 200px;
+    display: none; flex-direction: column; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 5px; overflow: hidden; }
+.submenu a { padding: 12px; text-decoration: none; color: var(--color-texto); background: var(--submenu-bg); font-weight: 500; }
+.submenu a:hover { background: var(--color-secundario); color: #fff; }
+nav ul li:hover .submenu { display: flex; animation: fadeIn 0.3s ease-in-out; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px);} to {opacity: 1; transform: translateY(0);} }
+
+/* CONTENIDO */
+main { padding: 120px 40px 60px; max-width: 1200px; margin: auto; }
+section { margin-bottom: 60px; opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+section.visible { opacity: 1; transform: translateY(0); }
+h2 { margin-bottom: 20px; color: var(--color-destacado); font-size: 2rem; }
+h3 { margin-bottom: 15px; color: var(--color-secundario); font-size: 1.5rem; }
+p { margin-bottom: 15px; line-height: 1.6; }
+
+/* CONTACTO */
+#contacto { background: var(--color-secundario); padding: 40px; border-radius: 10px; color: #fff; }
+#contacto a { color: #fff; font-weight: bold; }
+
+/* Contenedor de contacto */
+#contacto .contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: 250px; /* altura fija para todo el bloque */
+}
+
+/* Contenedor del logo */
+#contacto .contact-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* logo ocupa todo el alto del bloque */
+}
+
+/* Imagen del logo */
+#contacto .contact-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Información de contacto */
+#contacto .contact-info {
+    max-width: 70%;
+}
+
+/* HAMBURGUESA */
+.hamburger { display: none; font-size: 2rem; cursor: pointer; color: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+    .hamburger {
+        display: block;
+        order: 2; /* Mueve hamburguesa a la derecha */
+    }
+    header .banner {
+        display: block;
+        order: 1;
+        position: relative;
+        left: 0;
+    }
+
+    nav ul { 
+        display: none; 
+        flex-direction: column; 
+        gap: 15px; 
+        background: var(--color-principal); 
+        position: absolute; 
+        top: 60px; 
+        right: 0; 
+        padding: 20px; 
+        width: 250px;
+        border-radius: 0 0 10px 10px;
+    }
+    nav ul.show { display: flex; }
+
+    /* Submenús en móvil */
+    nav ul li .submenu {
+        display: none;
+        flex-direction: column;
+        background: var(--color-principal);
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+    nav ul li.open .submenu { display: flex; }
+    nav ul li > a::after { content: " ▼"; font-size: 0.8rem; }
+
+    .submenu { position: relative; box-shadow: none; }
+
+    /* Contacto en móvil */
+    #contacto .contact-content {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+    #contacto .contact-logo {
+        max-height: 120px;
+        margin-top: 15px;
+    }
+    #contacto .contact-logo img {
+        height: 100%;
+        max-height: 120px;
+    }
+}
+
+/* Animación al pasar el ratón por banner y logo */
+header .banner img,
+#contacto .contact-logo img {
+    transition: transform 0.3s ease;
+}
+header .banner img:hover,
+#contacto .contact-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Ocultar título en móviles para evitar solaparse con el banner */
+@media (max-width: 1024px) {
+    header h1 {
+        display: none;
+    }
+    header {
+        justify-content: flex-start;
