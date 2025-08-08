@@ -167,37 +167,60 @@ header .banner img:hover,
     }
 }
         
-/* BOTÓN WHATSAPP FLOTANTE */
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    animation: vibrar 0.3s linear 2s 3, pausa 10s linear infinite;
+/* BOTÓN WHATSAPP — pequeño e inferior izquierda */
+.whatsapp-button{
+  position: fixed;
+  left: 16px;          /* esquina izquierda */
+  right: auto;
+  bottom: 16px;        /* esquina inferior */
+  z-index: 3000;
+  width: 44px;         /* tamaño del botón */
+  height: 44px;
+  border-radius: 50%;
+  background: #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+  animation: vibrar 0.3s linear 2s 3, pausa 10s linear infinite; /* vibración suave */
+}
+.whatsapp-button img,
+.whatsapp-button .wa-fallback{
+  width: 24px;        /* icono pequeño dentro del botón */
+  height: 24px;
+  display: block;
+}
+.whatsapp-button:hover{
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(0,0,0,.24);
 }
 
-.whatsapp-button img {
-    width: 50px;
-    height: 50px;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1);
-}
-
-/* Animación vibración */
+/* Vibración */
 @keyframes vibrar {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+  0% { transform: translate(0); }
+  20% { transform: translate(-1.5px, 1.5px); }
+  40% { transform: translate(-1.5px, -1.5px); }
+  60% { transform: translate(1.5px, 1.5px); }
+  80% { transform: translate(1.5px, -1.5px); }
+  100% { transform: translate(0); }
+}
+@keyframes pausa { 0%,100% { transform: translate(0); } }
+
+/* Más pequeño en móvil */
+@media (max-width: 768px){
+  .whatsapp-button{
+    left: 12px;
+    bottom: 12px;
+    width: 40px;
+    height: 40px;
+  }
+  .whatsapp-button img,
+  .whatsapp-button .wa-fallback{
+    width: 22px;
+    height: 22px;
+  }
 }
 
-@keyframes pausa {
-    0%, 100% { transform: translate(0); }
-}
+
 
