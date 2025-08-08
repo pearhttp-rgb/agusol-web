@@ -164,7 +164,10 @@ header .banner img:hover,
     }
     header {
         justify-content: flex-start;
+    }
+}
         
+/* BOTÓN WHATSAPP FLOTANTE */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
@@ -172,6 +175,7 @@ header .banner img:hover,
     z-index: 1000;
     cursor: pointer;
     transition: transform 0.3s ease;
+    animation: vibrar 0.3s linear 2s 3, pausa 10s linear infinite;
 }
 
 .whatsapp-button img {
@@ -181,5 +185,19 @@ header .banner img:hover,
 
 .whatsapp-button:hover {
     transform: scale(1.1);
+}
+
+/* Animación vibración */
+@keyframes vibrar {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes pausa {
+    0%, 100% { transform: translate(0); }
 }
 
