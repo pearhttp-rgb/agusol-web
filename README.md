@@ -1,2 +1,2 @@
 # agusol-web
-we of agusol
+web of agusol
