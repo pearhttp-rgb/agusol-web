@@ -9,7 +9,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
 body { background-color: #f9f9f9; color: var(--color-texto); }
 
-/* NAVBAR */
+/* Top webpage */
 header {
     position: fixed; top: 0; left: 0; width: 100%;
     background: var(--color-principal); color: #fff;
@@ -95,7 +95,7 @@ p { margin-bottom: 15px; line-height: 1.6; }
     }
     .hamburger {
         display: block;
-        order: 2; /* Mueve hamburguesa a la derecha */
+        order: 2; 
     }
     header .banner {
         display: block;
@@ -157,7 +157,7 @@ header .banner img:hover,
     transform: scale(1.05);
 }
 
-/* Ocultar título en móviles para evitar solaparse con el banner */
+/* Oculta el título en móviles para evitar solaparse con el banner */
 @media (max-width: 1024px) {
   header h1 {
     display: none;
@@ -165,14 +165,14 @@ header .banner img:hover,
   header {
     justify-content: flex-start;
   }
-} /* ← cierra la media query correctamente */
+}
 
-/* BOTÓN WHATSAPP — pequeño e inferior izquierda */
+/* BOTÓN WHATSAPP */
 .whatsapp-button{
   position: fixed;
-  left: 16px;          /* esquina izquierda */
+  left: 16px;          
   right: auto;
-  bottom: 16px;        /* esquina inferior */
+  bottom: 16px;        
   z-index: 3000;
   width: 44px;
   height: 44px;
@@ -183,11 +183,11 @@ header .banner img:hover,
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,.2);
   transition: transform .2s ease, box-shadow .2s ease;
-  animation: vibrar 0.3s linear 2s 3, pausa 10s linear infinite; /* vibración suave */
+  animation: vibrar 0.3s linear 2s 3, pausa 10s linear infinite; 
 }
 .whatsapp-button img,
 .whatsapp-button .wa-fallback{
-  width: 24px;        /* icono pequeño dentro del botón */
+  width: 24px;        
   height: 24px;
   display: block;
 }
@@ -276,4 +276,5 @@ header .banner img:hover,
     font-weight: 500;
     color: #333;
 }
+
 
