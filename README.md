@@ -9,7 +9,7 @@
 
 ## Captura de pantalla
 
-[![Captura de AGUSOL 1999 SL](screenshot.png)](https://agusol.es)
+[![Captura de AGUSOL 1999 SL](captura1.jpg)](https://agusol.es)
 
 ---
 
@@ -47,7 +47,7 @@ Además del desarrollo web, se realizó la configuración de los dominios asocia
 
 ## Estructura del proyecto
 
-/ ├── index.html       # Página principal 
+/ ├── index.html     # Página principal 
 ├── style.css        # Estilos y animaciones 
 ├── banner.jpg       # Banner superior 
 ├── logo.jpg         # Logotipo 
@@ -72,7 +72,6 @@ Este proyecto fue desarrollado por Josefa Macías Manceras durante sus práctica
 La entrega incluye todo el código y archivos necesarios para su funcionamiento, sin compromiso de mantenimiento posterior.
 
 Más sobre mí:
-
 LinkedIn
 https://www.linkedin.com/in/josefa-macias
 
